@@ -7,6 +7,6 @@ def get_file_extension(regex, path):
         if "." in folders or "Android" in folders:
             continue
         r = re.compile(regex)
-        file_iterator = filter(r.match, files)
+        file_iterator = filter(r.match, set(files))
         for music_file in file_iterator:
             yield os.path.join(folders, music_file)
